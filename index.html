@@ -23,12 +23,14 @@
         nav {
             background-color: #444;
             padding: 10px;
+            overflow: auto; /* Evita que o menu se sobreponha */
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 10px;
+            display: block; /* Garante que cada item do menu ocupe uma linha */
         }
 
         main {
@@ -53,34 +55,43 @@
 
         /* Estilos para dispositivos móveis */
         @media only screen and (max-width: 600px) {
+            nav {
+                padding: 5px; /* Reduz o espaço entre os itens do menu */
+            }
+
+            nav a {
+                padding: 8px;
+            }
+
             main {
                 padding: 10px;
             }
-            .btn-comecar {
-                font-size: 18px;
-                padding: 15px 30px;
-            }
+
+            .btn-comecar,
             .download button {
-                display: block;
-                margin: 10px 0;
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-            .home .btn-comecar {
-                padding: 15px 30px;
-                font-size: 18px;
+                font-size: 16px;
+                padding: 12px 24px;
             }
         }
 
         /* Estilos para versão web */
         @media only screen and (min-width: 601px) {
-            .download button {
-                padding: 20px 40px; /* Aumento do tamanho dos botões para a versão web */
-                font-size: 20px; /* Aumento do tamanho do texto para a versão web */
+            nav {
+                float: left;
             }
-            .home .btn-comecar {
-                padding: 20px 40px;
-                font-size: 20px;
+
+            nav a {
+                display: inline;
+            }
+
+            main {
+                margin-left: 200px; /* Espaço para o menu */
+            }
+
+            .btn-comecar,
+            .download button {
+                font-size: 18px;
+                padding: 15px 30px;
             }
         }
     </style>
