@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Como Formatar um PC</title>
+    <style>
+        /* Estilo global */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Estilo específico para cada página */
+        .home {
+            display: block;
+        }
+
+        .download,
+        .bios,
+        .instalacao {
+            display: none;
+        }
+
+        /* Estilos para links de navegação ativos */
+        .active {
+            background-color: #555;
+        }
+
+        /* Estilos para dispositivos móveis */
+        @media only screen and (max-width: 600px) {
+            main {
+                padding: 10px;
+            }
+            .btn-comecar {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+            .download button {
+                display: block;
+                margin: 10px 0;
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+            .home .btn-comecar {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+        }
+
+        /* Estilos para versão web */
+        @media only screen and (min-width: 601px) {
+            .download button {
+                padding: 20px 40px; /* Aumento do tamanho dos botões para a versão web */
+                font-size: 20px; /* Aumento do tamanho do texto para a versão web */
+            }
+            .home .btn-comecar {
+                padding: 20px 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tutorial: Como Formatar um PC</h1>
+    </header>
+
+    <nav>
+        <a href="#" class="link-home active">Home</a>
+        <a href="#" class="link-download">Download</a>
+        <a href="#" class="link-bios">Configuração da BIOS</a>
+        <a href="#" class="link-instalacao">Instalação do Sistema Operacional</a>
+    </nav>
+
+    <main>
+        <div class="home">
+            <h2>Bem-vindo ao tutorial!</h2>
+            <p>Neste tutorial, vamos guiá-lo pelo processo de formatação de um PC.</p>
+            <button class="btn-comecar">Começar</button>
+        </div>
+
+        <div class="download">
+            <h2>Passo 1: Baixe a imagem do sistema operacional</h2>
+            <p>Para começar, baixe a imagem ISO do sistema operacional que você deseja instalar:</p>
+            <div class="windows">
+                <h3>Windows</h3>
+                <ul>
+                    <li><button onclick="location.href='https://www.microsoft.com/pt-br/software-download/windows10'">Windows 10</button></li>
+                    <li><button onclick="location.href='https://www.microsoft.com/pt-br/windows/windows-11'">Windows 11</button></li>
+                </ul>
+            </div>
+            <div class="linux">
+                <h3>Linux</h3>
+                <ul>
+                    <li><button onclick="location.href='https://ubuntu.com/download/desktop'">Ubuntu</button></li>
+                    <li><button onclick="location.href='https://getfedora.org/'">Fedora</button></li>
+                    <li><button onclick="location.href='https://www.debian.org/distrib/'">Debian</button></li>
+                </ul>
+            </div>
+            <h3>Bios</h3>
+            <p>É importante ter a BIOS atualizada para garantir a compatibilidade e o desempenho do sistema. Após baixar a BIOS, siga as instruções do fabricante para atualizá-la.</p>
+            <h2>Passo 2: Coloque a imagem do sistema operacional no pendrive</h2>
+            <ol>
+                <li>Insira o pendrive no computador.</li>
+                <li>Baixe e instale um programa para criar uma mídia de instalação bootável, como o <a href="https://www.balena.io/etcher/" target="_blank">Balena Etcher</a>.</li>
+                <li>Abra o programa e selecione a imagem ISO que você baixou.</li>
+                <li>Selecione o pendrive como o dispositivo para criar a mídia bootável e inicie o processo.</li>
+            </ol>
+        </div>
+
+        <div class="bios">
+            <h2>Passo 3: Configure o BIOS</h2>
+            <p>Para acessar a BIOS, siga as instruções de acordo com o tipo de computador:</p>
+            <ul>
+                <li><strong>PC Desktop (Windows):</strong> Reinicie o computador e pressione a tecla <strong>Delete (DEL)</strong> repetidamente ou a tecla <strong>F2</strong> assim que o computador inicializar. Algumas placas-mãe podem usar outras teclas, como <strong>F1</strong> ou <strong>F10</strong>.</li>
+                <li><strong>Laptop (Windows):</strong> O procedimento pode variar dependendo do fabricante do laptop, mas geralmente, você precisa reiniciar o laptop e pressionar uma das seguintes teclas: <strong>F2</strong>, <strong>F12</strong>, <strong>Delete (DEL)</strong>, <strong>ESC</strong> ou <strong>Fn + F2</strong>.</li>
+                <li><strong>Computadores Mac:</strong> Reinicie o computador e mantenha pressionada a tecla <strong>Command (⌘)</strong> e a tecla <strong>R</strong> ao mesmo tempo até que o logotipo da Apple apareça. Em seguida, selecione "Utilitários" > "Utilitário de Disco" > "EFI Boot".</li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript para alternar entre as páginas
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('nav a.active').classList.remove('active');
+                this.classList.add('active');
+
+                document.querySelectorAll('main > div').forEach(page => {
+                    page.style.display = 'none';
+                });
+
+                document.querySelector(`main > div.${this.classList[0].replace('link-', '')}`).style.display = 'block';
+            });
+        });
+
+        // JavaScript para redirecionar para a página de download
+        document.querySelector('.btn-comecar').addEventListener('click', function() {
+            document.querySelector('.link-download').click();
+        });
+    </script>
+</body>
+</html>
